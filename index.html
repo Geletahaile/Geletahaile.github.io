@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Geleta Hamda — Senior SQL · BI · ETL Developer</title>
+<meta name="description" content="Senior SQL/BI/ETL Developer with 7+ years building enterprise data warehouse and BI solutions. Healthcare claims, financial services, Azure data engineering." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:           #f4efe3;
+    --bg-elev:      #ebe5d4;
+    --bg-deep:      #1a1815;
+    --ink:          #1a1815;
+    --ink-soft:     #4a463e;
+    --ink-muted:    #8a8478;
+    --line:         #d6cfbb;
+    --line-strong:  #1a1815;
+    --accent:       #b9461a;
+    --accent-warm:  #d97a3e;
+    --cream:        #fbf8ef;
+
+    --serif:  'Fraunces', 'Georgia', serif;
+    --sans:   'Manrope', system-ui, sans-serif;
+    --mono:   'JetBrains Mono', 'Menlo', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--accent); color: var(--cream); }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 720px) { .wrap { padding: 0 20px; } }
+
+  /* ============ NAV ============ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(244, 239, 227, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  nav.scrolled { border-bottom-color: var(--line); }
+  nav .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 18px; padding-bottom: 18px;
+  }
+  nav .brand {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  nav .brand .dot { color: var(--accent); }
+  nav ul {
+    display: flex; gap: 36px; list-style: none;
+    font-size: 13px; letter-spacing: 0.02em;
+  }
+  nav ul a {
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  nav ul a:hover { color: var(--accent); }
+  @media (max-width: 720px) {
+    nav ul { display: none; }
+  }
+
+  /* ============ HERO ============ */
+  header.hero {
+    padding: 180px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* subtle grid backdrop */
+  header.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.35;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, black 30%, transparent 80%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 36px;
+  }
+  .hero-eyebrow .pulse {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  h1.hero-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-style: italic;
+    font-size: clamp(64px, 12vw, 168px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+    font-variation-settings: "opsz" 144;
+  }
+  h1.hero-name .last { color: var(--accent); }
+
+  .hero-tagline {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 34px);
+    line-height: 1.3;
+    font-weight: 400;
+    max-width: 780px;
+    margin-bottom: 28px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .hero-tagline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-bio {
+    max-width: 620px;
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 40px;
+  }
+
+  .hero-cta {
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .btn-primary:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+  }
+  .btn-ghost:hover {
+    background: var(--ink);
+    color: var(--cream);
+    transform: translateY(-2px);
+  }
+  .btn .arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  /* ============ STATS STRIP ============ */
+  section.stats {
+    background: var(--bg-deep);
+    color: var(--cream);
+    padding: 80px 0;
+    border-top: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 860px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 48px; }
+  }
+  .stat .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(48px, 6vw, 88px);
+    line-height: 1;
+    color: var(--accent-warm);
+    letter-spacing: -0.03em;
+  }
+  .stat .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(251, 248, 239, 0.6);
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  /* ============ SECTION HEADER ============ */
+  .sec-head {
+    display: flex; align-items: baseline; gap: 24px;
+    margin-bottom: 64px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .sec-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 0.1em;
+  }
+  .sec-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(32px, 4vw, 52px);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .sec-title em { font-style: italic; color: var(--accent); font-weight: 500; }
+
+  section.block { padding: 120px 0; }
+
+  /* ============ ABOUT ============ */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+  .about-prose p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 24px;
+    letter-spacing: -0.005em;
+  }
+  .about-prose p + p {
+    font-size: 17px;
+    font-family: var(--sans);
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .about-facts {
+    border-top: 1px solid var(--line-strong);
+    padding-top: 8px;
+  }
+  .fact-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    align-items: baseline;
+  }
+  .fact-row .k {
+    font-family: var(--mono);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--ink-muted);
+  }
+  .fact-row .v { color: var(--ink); font-weight: 500; }
+  .fact-row .v em { color: var(--accent); font-style: normal; font-weight: 600; }
+
+  /* ============ PROJECTS ============ */
+  .proj-list { display: flex; flex-direction: column; }
+  .proj {
+    display: grid;
+    grid-template-columns: 80px 1fr 280px;
+    gap: 40px;
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    align-items: center;
+    transition: padding 0.3s ease;
+    position: relative;
+  }
+  .proj:last-child { border-bottom: 1px solid var(--line); }
+  .proj:hover { padding-left: 24px; }
+  .proj::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s ease;
+  }
+  .proj:hover::before { transform: scaleY(1); }
+  @media (max-width: 860px) {
+    .proj {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 32px 0;
+    }
+    .proj:hover { padding-left: 0; }
+  }
+  .proj-num {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+  .proj-body h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(24px, 2.6vw, 32px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .proj-body h3 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .proj-body .desc {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 560px;
+  }
+  .proj-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 5px 10px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--ink-soft);
+  }
+  .proj-status {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .proj-status::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent-warm);
+  }
+
+  /* ============ STACK ============ */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+  @media (max-width: 860px) { .stack-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .stack-cat {
+    border-top: 2px solid var(--line-strong);
+    padding-top: 20px;
+  }
+  .stack-cat h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-muted);
+    margin-bottom: 18px;
+  }
+  .stack-cat ul { list-style: none; }
+  .stack-cat li {
+    padding: 9px 0;
+    font-size: 16px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .stack-cat li:last-child { border: 0; }
+  .stack-cat .level {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ============ EXPERIENCE ============ */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    padding: 48px 0;
+    border-top: 1px solid var(--line);
+  }
+  .exp-item:last-child { border-bottom: 1px solid var(--line); }
+  @media (max-width: 860px) {
+    .exp-item { grid-template-columns: 1fr; gap: 16px; }
+  }
+  .exp-time {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-muted);
+    padding-top: 8px;
+  }
+  .exp-role {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .exp-co {
+    font-size: 14px;
+    color: var(--accent);
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+  .exp-bullets {
+    list-style: none;
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .exp-bullets li {
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .exp-bullets strong { color: var(--ink); font-weight: 600; }
+
+  /* ============ EDUCATION ============ */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 720px) { .edu-grid { grid-template-columns: 1fr; } }
+  .edu-card {
+    padding: 36px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  .edu-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+  .edu-card .kind {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .edu-card h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .edu-card .inst {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .edu-card .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-muted);
+  }
+
+  /* ============ CONTACT ============ */
+  section.contact {
+    background: var(--bg-deep);
+    color: var(--cream);
+    padding: 140px 0;
+    text-align: center;
+  }
+  .contact h2 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+  }
+  .contact h2 em {
+    font-style: italic;
+    color: var(--accent-warm);
+    font-weight: 500;
+  }
+  .contact p {
+    font-size: 18px;
+    color: rgba(251, 248, 239, 0.7);
+    max-width: 540px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+  }
+  .contact-links {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  }
+  .contact .btn-primary {
+    background: var(--cream);
+    color: var(--ink);
+    border-color: var(--cream);
+  }
+  .contact .btn-primary:hover {
+    background: var(--accent);
+    color: var(--cream);
+    border-color: var(--accent);
+  }
+  .contact .btn-ghost {
+    color: var(--cream);
+    border-color: rgba(251, 248, 239, 0.3);
+  }
+  .contact .btn-ghost:hover {
+    background: var(--cream);
+    color: var(--ink);
+    border-color: var(--cream);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 32px 0;
+    background: var(--bg-deep);
+    color: rgba(251, 248, 239, 0.5);
+    border-top: 1px solid rgba(251, 248, 239, 0.1);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+
+  /* ============ REVEAL ANIMATIONS ============ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-1 { transition-delay: 0.1s; }
+  .reveal-2 { transition-delay: 0.2s; }
+  .reveal-3 { transition-delay: 0.3s; }
+  .reveal-4 { transition-delay: 0.4s; }
+  .reveal-5 { transition-delay: 0.5s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<nav id="nav">
+  <div class="wrap">
+    <a href="#" class="brand">Geleta Hamda<span class="dot">.</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow reveal visible">
+      <span class="pulse"></span>
+      Available · Senior SQL · BI · ETL Developer · Alexandria, VA
+    </div>
+    <h1 class="hero-name reveal visible reveal-1">Geleta<br/><span class="last">Hamda.</span></h1>
+    <p class="hero-tagline reveal visible reveal-2">
+      I build the pipelines that move <em>500&nbsp;million records</em> before sunrise — and the dashboards executives open with their first coffee.
+    </p>
+    <p class="hero-bio reveal visible reveal-3">
+      Seven years architecting enterprise data warehouses, modernizing healthcare claim ETL pipelines, and turning raw operational data into the kind of clean dimensional models that survive an audit. Currently working on a Medicaid EDW modernization project and pursuing the Azure DP-203.
+    </p>
+    <div class="hero-cta reveal visible reveal-4">
+      <a href="#projects" class="btn btn-primary">View selected work <span class="arrow">→</span></a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="num">40<small style="font-size:0.5em;">%</small></div>
+        <div class="label">ETL runtime<br/>reduction</div>
+      </div>
+      <div class="stat reveal reveal-1">
+        <div class="num">500<small style="font-size:0.5em;">M+</small></div>
+        <div class="label">Records processed<br/>nightly</div>
+      </div>
+      <div class="stat reveal reveal-2">
+        <div class="num">150<small style="font-size:0.5em;">+</small></div>
+        <div class="label">Production pipelines<br/>maintained</div>
+      </div>
+      <div class="stat reveal reveal-3">
+        <div class="num">200<small style="font-size:0.5em;">+</small></div>
+        <div class="label">Business users<br/>on dashboards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">01 / About</span>
+      <h2 class="sec-title">A <em>data engineer</em> with audit-grade habits.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-prose reveal reveal-1">
+        <p>
+          I started my career writing T-SQL against beverage distribution data and have spent the last three years architecting SOX-compliant ETL for one of the largest banks in the world. Today I'm helping a Medicaid health plan modernize the claim pipelines that pay providers across North Carolina.
+        </p>
+        <p>
+          What I care about: data lineage you can trace end-to-end, validation queries that catch issues before downstream users do, dimensional models that hold up when the business asks new questions, and documentation a teammate can read at 2 a.m. and actually use.
+        </p>
+      </div>
+      <div class="about-facts reveal reveal-2">
+        <div class="fact-row"><span class="k">Currently</span><span class="v">EDW Modernization · Healthcare claims</span></div>
+        <div class="fact-row"><span class="k">Studying</span><span class="v">M.S. Business Analytics, GCU</span></div>
+        <div class="fact-row"><span class="k">Pursuing</span><span class="v"><em>Azure DP-203</em> · Data Engineer</span></div>
+        <div class="fact-row"><span class="k">Stack</span><span class="v">SQL Server · SSIS · Power BI · ADF</span></div>
+        <div class="fact-row"><span class="k">Based</span><span class="v">Alexandria, VA · Open to remote</span></div>
+        <div class="fact-row"><span class="k">Status</span><span class="v">U.S. Citizen</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="block" id="projects" style="background: var(--bg-elev);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">02 / Selected Work</span>
+      <h2 class="sec-title">Five <em>case studies</em> in motion.</h2>
+    </div>
+    <div class="proj-list">
+
+      <article class="proj reveal">
+        <div class="proj-num">001</div>
+        <div class="proj-body">
+          <h3>Healthcare Claims <em>EDW Modernization</em></h3>
+          <p class="desc">Migration case study: lifting HSP claim ETL from legacy backup tables to a modernized Extract/Load template. Includes validation patterns, root-cause-analysis writeups for production failures (UNIQUE KEY violations, IsCurrent join bugs), and a CTE-based reusable validation framework.</p>
+        </div>
+        <div class="proj-meta">
+          <div class="tags">
+            <span class="tag">SQL Server</span>
+            <span class="tag">T-SQL</span>
+            <span class="tag">ETL</span>
+            <span class="tag">Healthcare</span>
+          </div>
+          <span class="proj-status">In progress</span>
+        </div>
+      </article>
+
+      <article class="proj reveal reveal-1">
+        <div class="proj-num">002</div>
+        <div class="proj-body">
+          <h3>NovaMart Global Retail <em>Sales Analytics</em></h3>
+          <p class="desc">End-to-end Power BI dashboard built on a star schema: Power Query transformations, DAX measures for YoY/QoQ growth, dynamic RLS for regional managers, and a published report with bookmarks and drill-through.</p>
+        </div>
+        <div class="proj-meta">
+          <div class="tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">DAX</span>
+            <span class="tag">Star Schema</span>
+            <span class="tag">RLS</span>
+          </div>
+          <span class="proj-status">In progress</span>
+        </div>
+      </article>
+
+      <article class="proj reveal reveal-2">
+        <div class="proj-num">003</div>
+        <div class="proj-body">
+          <h3>Azure Data Factory <em>End-to-End Pipeline</em></h3>
+          <p class="desc">Cloud ETL reference architecture: source CSVs → ADLS Gen2 → Mapping Data Flows → Azure SQL DB → Power BI. Covers parameterized linked services, scheduled triggers, monitoring, and CI/CD with Azure DevOps.</p>
+        </div>
+        <div class="proj-meta">
+          <div class="tags">
+            <span class="tag">Azure</span>
+            <span class="tag">ADF</span>
+            <span class="tag">ADLS</span>
+            <span class="tag">DP-203</span>
+          </div>
+          <span class="proj-status">Planned</span>
+        </div>
+      </article>
+
+      <article class="proj reveal reveal-3">
+        <div class="proj-num">004</div>
+        <div class="proj-body">
+          <h3>SQL Performance <em>Tuning Lab</em></h3>
+          <p class="desc">Five real-world slow queries, deconstructed: execution plan reading, indexing strategy, query refactoring, and before/after benchmarks. Includes a reusable diagnostic script library.</p>
+        </div>
+        <div class="proj-meta">
+          <div class="tags">
+            <span class="tag">T-SQL</span>
+            <span class="tag">Indexes</span>
+            <span class="tag">Execution Plans</span>
+          </div>
+          <span class="proj-status">Planned</span>
+        </div>
+      </article>
+
+      <article class="proj reveal reveal-4">
+        <div class="proj-num">005</div>
+        <div class="proj-body">
+          <h3>Healthcare Claims <em>SCD Type 2 Data Mart</em></h3>
+          <p class="desc">A complete dimensional model — Member, Provider, Date, Claim Fact — implemented in SQL Server with SSIS packages handling Type 1 and Type 2 Slowly Changing Dimensions. Includes synthetic data generator and Power BI report on top.</p>
+        </div>
+        <div class="proj-meta">
+          <div class="tags">
+            <span class="tag">SSIS</span>
+            <span class="tag">Dimensional</span>
+            <span class="tag">SCD Type 2</span>
+            <span class="tag">Healthcare</span>
+          </div>
+          <span class="proj-status">Planned</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ STACK ============ -->
+<section class="block" id="stack">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">03 / Stack</span>
+      <h2 class="sec-title">The <em>tools</em> on the bench.</h2>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-cat reveal">
+        <h4>Data &amp; Warehousing</h4>
+        <ul>
+          <li>SQL Server 2012–2019 <span class="level">Expert</span></li>
+          <li>T-SQL <span class="level">Expert</span></li>
+          <li>Dimensional Modeling <span class="level">Expert</span></li>
+          <li>SCD Type 1 &amp; 2 <span class="level">Expert</span></li>
+          <li>SSAS <span class="level">Proficient</span></li>
+          <li>MySQL · Oracle <span class="level">Proficient</span></li>
+          <li>Snowflake <span class="level">Familiar</span></li>
+        </ul>
+      </div>
+      <div class="stack-cat reveal reveal-1">
+        <h4>ETL &amp; BI</h4>
+        <ul>
+          <li>SSIS · SSDT <span class="level">Expert</span></li>
+          <li>Power BI · DAX <span class="level">Expert</span></li>
+          <li>SSRS <span class="level">Expert</span></li>
+          <li>Power Query (M) <span class="level">Proficient</span></li>
+          <li>Tableau <span class="level">Proficient</span></li>
+          <li>Talend <span class="level">Proficient</span></li>
+        </ul>
+      </div>
+      <div class="stack-cat reveal reveal-2">
+        <h4>Cloud &amp; Ops</h4>
+        <ul>
+          <li>Azure Data Factory <span class="level">Proficient</span></li>
+          <li>Azure DevOps <span class="level">Proficient</span></li>
+          <li>Git · Redgate <span class="level">Proficient</span></li>
+          <li>CI/CD Pipelines <span class="level">Proficient</span></li>
+          <li>Python (pandas) <span class="level">Familiar</span></li>
+          <li>Azure Synapse <span class="level">Learning</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="block" id="experience" style="background: var(--bg-elev);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">04 / Experience</span>
+      <h2 class="sec-title">Where I've <em>shipped</em>.</h2>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-time">Jan 2022 — Present</div>
+      <div>
+        <h3 class="exp-role">Senior SQL / ETL Developer</h3>
+        <div class="exp-co">Citibank</div>
+        <ul class="exp-bullets">
+          <li>Architected and optimized enterprise-scale ETL pipelines and dimensional models supporting financial and operational reporting for <strong>10+ business domains, processing 500M+ records nightly</strong> in a SOX-compliant environment.</li>
+          <li>Built and maintained <strong>150+ T-SQL stored procedures and views</strong> — reducing execution time by up to <strong>40%</strong> through indexing strategies, execution plan analysis, and query refactoring.</li>
+          <li>Designed and deployed <strong>20+ Power BI and SSRS dashboards</strong> used by 200+ business and operations users, eliminating ~15 hours/week of manual Excel reporting.</li>
+          <li>Diagnosed and resolved recurring SSIS pipeline failures across 25+ workflows, consistently meeting strict SLA requirements in a regulated banking environment.</li>
+          <li>Led Agile sprint ceremonies as ETL technical SME; authored ETL logic documentation and runbooks adopted by 5+ team members.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal reveal-1">
+      <div class="exp-time">Nov 2018 — Jan 2022</div>
+      <div>
+        <h3 class="exp-role">SQL / ETL Developer</h3>
+        <div class="exp-co">Breakthru Beverage Group</div>
+        <ul class="exp-bullets">
+          <li>Designed and implemented enterprise data warehouse and data mart solutions using <strong>star and snowflake schemas</strong>, supporting reporting across 3 business units.</li>
+          <li>Built <strong>30+ SSIS ETL packages</strong> handling incremental and full-load processing for 5M+ daily records, including Type 1 and Type 2 Slowly Changing Dimensions.</li>
+          <li>Developed 50+ T-SQL stored procedures, functions, and views — reducing ad-hoc query turnaround time by <strong>30%</strong>.</li>
+          <li>Improved ETL pipeline stability by <strong>25%</strong> through structured logging, automated error notifications, and standardized error-handling frameworks.</li>
+          <li>Supported 10+ production deployments per quarter using Git and Redgate with zero critical post-deployment failures.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="block" id="education">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">05 / Education &amp; Certs</span>
+      <h2 class="sec-title">Always <em>compounding</em>.</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="kind">Graduate</div>
+        <h3>M.S. in Business Analytics</h3>
+        <div class="inst">Grand Canyon University</div>
+        <div class="meta">Expected 2026 · Predictive Analytics · Data Mining · BI Strategy</div>
+      </div>
+      <div class="edu-card reveal reveal-1">
+        <div class="kind">Undergraduate</div>
+        <h3>B.S. in Engineering</h3>
+        <div class="inst">Adama Science &amp; Technology University</div>
+        <div class="meta">Completed</div>
+      </div>
+      <div class="edu-card reveal reveal-2">
+        <div class="kind">Certification · Completed</div>
+        <h3>Azure Data Factory Fundamentals</h3>
+        <div class="inst">Microsoft Learn</div>
+        <div class="meta">Earned · 2025</div>
+      </div>
+      <div class="edu-card reveal reveal-3">
+        <div class="kind">Certification · In Progress</div>
+        <h3>DP-203: Azure Data Engineer Associate</h3>
+        <div class="inst">Microsoft</div>
+        <div class="meta">Targeting 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's <em>build</em> something.</h2>
+    <p>Open to senior remote roles in healthcare claims, financial services, or federal contracting. Always happy to talk pipelines, dimensional models, or interview prep.</p>
+    <div class="contact-links">
+      <a href="mailto:geletahaile7@gmail.com" class="btn btn-primary">geletahaile7@gmail.com <span class="arrow">→</span></a>
+      <a href="https://linkedin.com/in/geleta-hamda" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="#" class="btn btn-ghost">GitHub (add link)</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 Geleta Hamda · Alexandria, VA</div>
+    <div>Designed &amp; built by Geleta · Updated May 2026</div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav border on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
