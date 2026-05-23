@@ -362,7 +362,20 @@
     font-size: 15px;
     line-height: 1.6;
     max-width: 560px;
+    margin-bottom: 14px;
   }
+  .proj-body .proj-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    transition: gap 0.25s ease;
+  }
+  .proj-body .proj-link:hover { gap: 12px; }
   .proj-meta {
     display: flex;
     flex-direction: column;
@@ -396,6 +409,9 @@
     width: 6px; height: 6px;
     border-radius: 50%;
     background: var(--accent-warm);
+  }
+  .proj-status.completed::before {
+    background: #2d8a4a;
   }
 
   /* ============ STACK ============ */
@@ -718,7 +734,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">02 / Selected Work</span>
-      <h2 class="sec-title">Five <em>case studies</em> in motion.</h2>
+      <h2 class="sec-title">Three <em>case studies</em> in motion.</h2>
     </div>
     <div class="proj-list">
 
@@ -742,17 +758,18 @@
       <article class="proj reveal reveal-1">
         <div class="proj-num">002</div>
         <div class="proj-body">
-          <h3>NovaMart Global Retail <em>Sales Analytics</em></h3>
-          <p class="desc">End-to-end Power BI dashboard built on a star schema: Power Query transformations, DAX measures for YoY/QoQ growth, dynamic RLS for regional managers, and a published report with bookmarks and drill-through.</p>
+          <h3>Healthcare Claims <em>Analytics Dashboard</em></h3>
+          <p class="desc">Four-page Power BI dashboard built on a true star schema on top of the Azure SQL warehouse: Executive Overview, Provider Analytics, Member Analytics, and a Data Quality &amp; Operations page surfacing pipeline run history. 30+ DAX measures organized in a <code>_Measures</code> table with synced slicers, conditional formatting, and custom format strings.</p>
+          <a href="https://github.com/Geletahaile/Geletahaile.github.io" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
         </div>
         <div class="proj-meta">
           <div class="tags">
             <span class="tag">Power BI</span>
             <span class="tag">DAX</span>
             <span class="tag">Star Schema</span>
-            <span class="tag">RLS</span>
+            <span class="tag">Azure SQL</span>
           </div>
-          <span class="proj-status">In progress</span>
+          <span class="proj-status completed">Completed</span>
         </div>
       </article>
 
@@ -760,49 +777,17 @@
         <div class="proj-num">003</div>
         <div class="proj-body">
           <h3>Azure Data Factory <em>End-to-End Pipeline</em></h3>
-          <p class="desc">Cloud ETL reference architecture: source CSVs → ADLS Gen2 → Mapping Data Flows → Azure SQL DB → Power BI. Covers parameterized linked services, scheduled triggers, monitoring, and CI/CD with Azure DevOps.</p>
+          <p class="desc">Production-pattern healthcare claims ETL pipeline on Azure Data Factory and Azure SQL Database — 5-layer warehouse architecture (CSV → src → raw → stg → dw with hold quarantine), SHA-256 AlternateKey change detection, MD5 RowHash content fingerprinting, dynamic SQL validation framework, and metadata-driven orchestration where adding a new entity requires only one INSERT into <code>meta.SourceTableLoad</code>.</p>
+          <a href="https://github.com/Geletahaile/azure-sql-adf-claims-pipeline" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
         </div>
         <div class="proj-meta">
           <div class="tags">
             <span class="tag">Azure</span>
             <span class="tag">ADF</span>
-            <span class="tag">ADLS</span>
+            <span class="tag">ADLS Gen2</span>
             <span class="tag">DP-203</span>
           </div>
-          <span class="proj-status">Planned</span>
-        </div>
-      </article>
-
-      <article class="proj reveal reveal-3">
-        <div class="proj-num">004</div>
-        <div class="proj-body">
-          <h3>SQL Performance <em>Tuning Lab</em></h3>
-          <p class="desc">Five real-world slow queries, deconstructed: execution plan reading, indexing strategy, query refactoring, and before/after benchmarks. Includes a reusable diagnostic script library.</p>
-        </div>
-        <div class="proj-meta">
-          <div class="tags">
-            <span class="tag">T-SQL</span>
-            <span class="tag">Indexes</span>
-            <span class="tag">Execution Plans</span>
-          </div>
-          <span class="proj-status">Planned</span>
-        </div>
-      </article>
-
-      <article class="proj reveal reveal-4">
-        <div class="proj-num">005</div>
-        <div class="proj-body">
-          <h3>Healthcare Claims <em>SCD Type 2 Data Mart</em></h3>
-          <p class="desc">A complete dimensional model — Member, Provider, Date, Claim Fact — implemented in SQL Server with SSIS packages handling Type 1 and Type 2 Slowly Changing Dimensions. Includes synthetic data generator and Power BI report on top.</p>
-        </div>
-        <div class="proj-meta">
-          <div class="tags">
-            <span class="tag">SSIS</span>
-            <span class="tag">Dimensional</span>
-            <span class="tag">SCD Type 2</span>
-            <span class="tag">Healthcare</span>
-          </div>
-          <span class="proj-status">Planned</span>
+          <span class="proj-status completed">Completed</span>
         </div>
       </article>
 
@@ -835,6 +820,7 @@
         <ul>
           <li>SSIS · SSDT <span class="level">Expert</span></li>
           <li>Power BI · DAX <span class="level">Expert</span></li>
+          <li>Star Schema Modeling <span class="level">Expert</span></li>
           <li>SSRS <span class="level">Expert</span></li>
           <li>Power Query (M) <span class="level">Proficient</span></li>
           <li>Tableau <span class="level">Proficient</span></li>
@@ -845,6 +831,7 @@
         <h4>Cloud &amp; Ops</h4>
         <ul>
           <li>Azure Data Factory <span class="level">Proficient</span></li>
+          <li>Azure SQL Database <span class="level">Proficient</span></li>
           <li>Azure DevOps <span class="level">Proficient</span></li>
           <li>Git · Redgate <span class="level">Proficient</span></li>
           <li>CI/CD Pipelines <span class="level">Proficient</span></li>
@@ -870,8 +857,8 @@
         <h3 class="exp-role">Senior SQL / ETL Developer</h3>
         <div class="exp-co">Citibank</div>
         <ul class="exp-bullets">
-          <li>Architected and optimized enterprise-scale ETL pipelines and dimensional models supporting financial and operational reporting for <strong>10+ business domains, processing 500M+ records nightly</strong> in a SOX-compliant environment.</li>
-          <li>Built and maintained <strong>150+ T-SQL stored procedures and views</strong> — reducing execution time by up to <strong>40%</strong> through indexing strategies, execution plan analysis, and query refactoring.</li>
+          <li>Architected and optimized enterprise-scale ETL pipelines and dimensional models supporting financial and operational reporting for <strong>10+ business domains, processing 50M+ records nightly</strong> in a SOX-compliant environment.</li>
+          <li>Built and maintained <strong>150+ T-SQL stored procedures and views</strong> — reducing execution time by up to <strong>60%</strong> through indexing strategies, execution plan analysis, and query refactoring.</li>
           <li>Designed and deployed <strong>20+ Power BI and SSRS dashboards</strong> used by 200+ business and operations users, eliminating ~15 hours/week of manual Excel reporting.</li>
           <li>Diagnosed and resolved recurring SSIS pipeline failures across 25+ workflows, consistently meeting strict SLA requirements in a regulated banking environment.</li>
           <li>Led Agile sprint ceremonies as ETL technical SME; authored ETL logic documentation and runbooks adopted by 5+ team members.</li>
@@ -880,7 +867,7 @@
     </div>
 
     <div class="exp-item reveal reveal-1">
-      <div class="exp-time">Nov 2018 — Jan 2022</div>
+      <div class="exp-time">Nov 2017 — Jan 2022</div>
       <div>
         <h3 class="exp-role">SQL / ETL Developer</h3>
         <div class="exp-co">Breakthru Beverage Group</div>
@@ -939,8 +926,8 @@
     <p>Open to senior remote roles in healthcare claims, financial services, or federal contracting. Always happy to talk pipelines, dimensional models, or interview prep.</p>
     <div class="contact-links">
       <a href="mailto:geletahaile7@gmail.com" class="btn btn-primary">geletahaile7@gmail.com <span class="arrow">→</span></a>
-      <a href="https://linkedin.com/in/geleta-hamda" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
-      <a href="#" class="btn btn-ghost">GitHub (add link)</a>
+      <a href="https://linkedin.com/in/geleta-hamda" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn <span class="arrow">→</span></a>
+      <a href="https://github.com/Geletahaile" target="_blank" rel="noopener" class="btn btn-ghost">GitHub <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
