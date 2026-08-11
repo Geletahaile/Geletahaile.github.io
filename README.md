@@ -312,9 +312,9 @@ See `docs/design-decisions.md` for the full breakdown.
 
 ## About
 
-Built by **Geleta Hamda** — Senior SQL/ETL Developer with 7+ years architecting enterprise data warehouses and BI solutions for financial services and consumer goods. Owns SOX-compliant ETL pipelines processing 50M+ records nightly across 10+ business domains at Citibank, with a track record of cutting query runtimes through indexing strategy redesign, query refactoring, and execution-plan analysis. Deep expertise in T-SQL, SSIS, dimensional modeling, and performance tuning, complemented by hands-on Azure Data Factory work and active progression toward DP-203 certification. Trusted peer reviewer on ETL design patterns and SCD implementations; delivers self-service Power BI, Tableau, and SSRS reporting consumed across Finance, Risk, and Operations.
+Built by **Geleta Hamda** — Senior Business Intelligence Developer with 3 years architecting BI and data-warehouse solutions in regulated healthcare and 8 years across data-focused roles. At Vaya Health, a Medicaid managed care organization, leads enterprise data warehouse modernization onto Azure Data Factory and Azure SQL with Kimball dimensional modeling, owns the data-quality layer that proves warehouse-to-source integrity after every cutover, and delivers Power BI and SSRS reporting for Enterprise Analytics. Deep expertise in T-SQL, SSIS, dimensional modeling, and query performance tuning, with production ETL handled under HIPAA and 42 CFR Part 2.
 
-Currently pursuing an **M.S. in Business Analytics** at Grand Canyon University.
+Currently completing an **M.S. in Business Analytics** at Grand Canyon University.
 
 - 🔗 LinkedIn: [linkedin.com/in/geleta-hamda](https://www.linkedin.com/in/geleta-hamda/)
 - 📧 Email: geletahaile7@gmail.com
