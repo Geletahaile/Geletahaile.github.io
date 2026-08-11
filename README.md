@@ -18,7 +18,7 @@ It was built to demonstrate two skill domains side by side:
 - **SQL Server / T-SQL expertise**: 5-layer warehouse architecture, split stored procedures (Extract / Stage / Load), AlternateKey-based change detection, RowHash content comparison, dynamic SQL validation framework, batched DML, self-healing hold-table reprocessing.
 - **Azure cloud expertise**: Azure SQL Database, Azure Data Factory metadata-driven orchestration with ForEach iteration, Azure Data Lake Storage Gen2, linked services, parameterized datasets, success/failure path handling, pipeline audit logging.
 
-Every pattern in this repo is from real production practice (CARC/RARC adjustment codes, HIPAA-compliant claims processing, SOX-shaped audit trails) — not a tutorial reimagining of "ETL Hello World."
+Every pattern in this repo is from real production practice (CARC/RARC adjustment codes, HIPAA-compliant claims processing, audit-ready trails) — not a tutorial reimagining of "ETL Hello World."
 
 ---
 
